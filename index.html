@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Open Tabs</title>
+    <script>
+        window.onload = function() {
+            const numberOfTabs = prompt("How many tabs do you want to open?");
+            const maxTabs = 50000; // Change this limit if needed
+
+            if (isNaN(numberOfTabs) || numberOfTabs <= 0) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            let tabsToOpen = Math.min(numberOfTabs, maxTabs);
+
+            for (let i = 0; i < tabsToOpen; i++) {
+                window.open('https://www.google.com', '_blank');
+            }
+
+            if (numberOfTabs > maxTabs) {
+                alert(`Opening more than ${maxTabs} tabs can cause performance issues.`);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Auto Opening Tabs...</h1>
+</body>
+</html>
